@@ -21,8 +21,10 @@ public class ServletClass extends HttpServlet{
 		int totalTicket=d1.fetchticket(name);
 		int remainingTicket=d1.remainingTicket(ticket, totalTicket);
 		d1.update(remainingTicket, name);
+		String theater=d1.fetchtheater(name);
 		double bill=d1.bill(price, ticket,remainingTicket);	
 		req.setAttribute("name", name);
+		req.setAttribute("theater", theater);
 		req.setAttribute("ticket", ticket);
 		req.setAttribute("remaining", remainingTicket);
 		req.setAttribute("bill", bill);

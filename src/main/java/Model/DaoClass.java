@@ -72,6 +72,24 @@ public class DaoClass {
 			}
 	    	return price;
 	    }
+	 public String fetchtheater(String name) {
+	    	ResultSet rs=null;
+	    	Statement stmt=null;
+	    	String query="select theater from movie where name='"+name+"'";
+	    	String theater="";
+
+			try {
+				stmt=con.createStatement();
+				rs=stmt.executeQuery(query);
+				while(rs.next()) {
+					theater=rs.getString("theater");
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    	return theater;
+	    }
 	 public int fetchticket(String name) {
 		    int totalTicket=0;
 	    	ResultSet rs=null;
